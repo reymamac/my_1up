@@ -1,0 +1,156 @@
+<template name="StudentRegister">
+  <div class="login-body">
+    <div class="login-wrapper">
+      <div class="login-card">
+        
+        <!-- Left Column: Multi-Step Form -->
+        <div class="form-left-col">
+          <a href="#" class="btn-back-home" id="backToHomeFromReg">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+          </a>
+
+          <div class="portal-badge-pill">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>STUDENT REGISTRATION (Step {{regStepNum}} of 4)</span>
+          </div>
+
+          <h1 class="login-heading">Create Account</h1>
+          <p class="login-subheading">
+            {{stepDescription}}
+          </p>
+
+          <!-- ERROR ALERT BOX -->
+          {{#if errorMessage}}
+            <div class="error-alert-box" style="background: #fee2e2; color: #991b1b; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1rem; font-weight: 600; border: 1px solid #fecaca;">
+              <i class="fa-solid fa-triangle-exclamation"></i> {{errorMessage}}
+            </div>
+          {{/if}}
+
+          <form id="studentRegisterForm">
+            
+            <!-- STEP 1: Full Name -->
+            {{#if isStep 1}}
+              <div class="input-group">
+                <label>Full Name</label>
+                <div class="input-box">
+                  <i class="fa-regular fa-user input-ico"></i>
+                  <input type="text" id="regFullName" placeholder="e.g. John Doe" required>
+                </div>
+              </div>
+
+              <div class="wizard-actions">
+                <button type="button" class="btn-signin-student" id="nextStepBtn">
+                  Next Step <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            {{/if}}
+
+            <!-- STEP 2: School ID & Email -->
+            {{#if isStep 2}}
+              <div class="input-group">
+                <label>School ID</label>
+                <div class="input-box">
+                  <i class="fa-regular fa-id-card input-ico"></i>
+                  <input type="text" id="regSchoolId" placeholder="e.g. 2026-123456" required>
+                </div>
+                <small class="input-hint" style="color: #64748b; font-size: 0.75rem; margin-top: 4px; display: block;">
+                  Format: YYYY-###### (e.g., 2026-123456)
+                </small>
+              </div>
+
+              <div class="input-group">
+                <label>Email Address</label>
+                <div class="input-box">
+                  <i class="fa-regular fa-envelope input-ico"></i>
+                  <input type="email" id="regEmail" placeholder="student@school.edu" required>
+                </div>
+              </div>
+
+              <div class="wizard-actions dual-btn">
+                <button type="button" class="btn-secondary-step" id="prevStepBtn">
+                  <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <button type="button" class="btn-signin-student" id="nextStepBtn">
+                  Next Step <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            {{/if}}
+
+            <!-- STEP 3: Course & Section -->
+            {{#if isStep 3}}
+              <div class="input-group">
+                <label>Course / Program</label>
+                <div class="input-box">
+                  <i class="fa-solid fa-graduation-cap input-ico"></i>
+                  <input type="text" id="regCourse" placeholder="e.g. BS Computer Engineering" required>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Section</label>
+                <div class="input-box">
+                  <i class="fa-solid fa-users input-ico"></i>
+                  <input type="text" id="regSection" placeholder="e.g. 3A" required>
+                </div>
+              </div>
+
+              <div class="wizard-actions dual-btn">
+                <button type="button" class="btn-secondary-step" id="prevStepBtn">
+                  <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <button type="button" class="btn-signin-student" id="nextStepBtn">
+                  Next Step <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            {{/if}}
+
+            <!-- STEP 4: Password & Confirmation -->
+            {{#if isStep 4}}
+              <div class="input-group">
+                <label>Password</label>
+                <div class="input-box">
+                  <i class="fa-solid fa-lock input-ico"></i>
+                  <input type="password" id="regPassword" placeholder="••••••••" required>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Confirm Password</label>
+                <div class="input-box">
+                  <i class="fa-solid fa-shield input-ico"></i>
+                  <input type="password" id="regConfirmPassword" placeholder="••••••••" required>
+                </div>
+              </div>
+
+              <div class="wizard-actions dual-btn">
+                <button type="button" class="btn-secondary-step" id="prevStepBtn">
+                  <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <button type="submit" class="btn-signin-student">
+                  Register Account
+                </button>
+              </div>
+            {{/if}}
+
+          </form>
+
+          <div class="switch-role-footer">
+            Already registered? <a href="#" class="switch-link" id="switchToLogin">Sign In Here</a>
+          </div>
+        </div>
+
+        <!-- Right Column: CTA Panel -->
+        <div class="cta-right-col">
+          <h2 class="cta-heading">Already Registered?</h2>
+          <p class="cta-desc">If you already have a student account, sign in now to view your classroom updates.</p>
+          <a href="#" class="btn-create-account" id="goToLoginFromCta">Sign In Here</a>
+          
+          <div class="system-copyright">
+            &copy; 2026 Academic Management System
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

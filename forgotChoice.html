@@ -1,0 +1,51 @@
+<template name="ForgotChoice">
+  <div class="login-body">
+    <div class="login-wrapper">
+      <div class="login-card">
+        
+        <div class="form-left-col">
+          <a href="#" class="btn-back-home" id="backToLoginFromChoice">
+            <i class="fa-solid fa-arrow-left"></i> Back to Sign In
+          </a>
+
+          <div class="portal-badge-pill">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>PASSWORD RECOVERY OPTIONS</span>
+          </div>
+
+          <h1 class="login-heading">Choose Recovery Method</h1>
+          <p class="login-subheading">How would you like to recover your account access?</p>
+
+          {{#if choiceMessage}}
+            <div class="error-alert-box">
+              <i class="fa-solid fa-circle-info"></i> {{choiceMessage}}
+            </div>
+          {{/if}}
+
+          <!-- OPTION 1: RESET PASSWORD -->
+          <button type="button" id="btnResetPasswordOption" class="btn-signin-student" style="margin-bottom: 0.8rem; background-color: #0284c7;">
+            <i class="fa-solid fa-key"></i> Reset Password via Link
+          </button>
+
+          <!-- OPTION 2: SEND / RESEND PASSWORD TO EMAIL -->
+          <button type="button" id="btnSendPasswordOption" class="btn-signin-student" style="background-color: #059669;">
+            <i class="fa-solid fa-paper-plane"></i> Send Password to Email (2-Min Auto-Delete)
+          </button>
+
+          <div class="switch-role-footer" style="margin-top: 1.5rem;">
+            Remembered your password? <a href="#" class="switch-link" id="backToLoginFromChoice">Sign In Here</a>
+          </div>
+        </div>
+
+        <div class="cta-right-col">
+          <h2 class="cta-heading">Security Notice</h2>
+          <p class="cta-desc">Choosing to send your password directly via email creates a temporary session that securely deletes itself after 2 minutes.</p>
+          <div class="system-copyright">
+            &copy; 2026 Academic Management System
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

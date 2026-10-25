@@ -1,0 +1,149 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STAT | ESSU-SALCEDO Academic Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  {{#if isHome}}
+    <!-- Top Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="brand">
+          <div class="logo-box">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="brand-text">
+            <span class="stat-prefix">STAT</span>
+            <span class="brand-name">ESSU-SALCEDO</span>
+            <span class="brand-sub">ACADEMIC MANAGEMENT</span>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <a href="/login" class="btn-login-nav">
+            <i class="fa-solid fa-right-to-bracket"></i> Portal Login
+          </a>
+          <button class="btn-quit-nav" id="quitWebsiteBtn" title="Quit / Exit Website">
+            <i class="fa-solid fa-power-off"></i> Quit
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-container">
+        <div class="pill-tag">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>OFFICIAL UNIVERSITY ACADEMIC PORTAL</span>
+        </div>
+
+        <h1 class="hero-title">
+          Empower Your <span class="highlight">Academic Journey</span>
+        </h1>
+
+        <p class="hero-description">
+          A unified digital management platform for students and teachers to seamlessly track coursework, submit deliverables, monitor grades, and manage campus activities at ESSU-Salcedo[cite: 21].
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary-lg" id="signInPortalBtn">
+            <span>Sign In to Portal</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="btn-secondary-lg" id="createAccountBtn">
+            <span>Create Account</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Role Selection Popup Modal (Login) -->
+    <div class="modal-overlay hidden" id="roleModal">
+      <div class="role-modal-card">
+        <button class="modal-close" id="closeRoleModal">&times;</button>
+        
+        <h2>Select Portal Role</h2>
+        <p>Choose your account type to continue</p>
+
+        <div class="icon-roles-container">
+          <!-- Student Icon Box -->
+          <a href="#" class="icon-role-card student-card">
+            <div class="large-icon-circle student-badge">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <span class="role-label">Student</span>
+          </a>
+
+          <!-- Teacher Icon Box -->
+          <a href="#" class="icon-role-card teacher-card">
+            <div class="large-icon-circle teacher-badge">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <span class="role-label">Teacher</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registration Role Selection Popup Modal -->
+    <div class="modal-overlay hidden" id="registerModal">
+      <div class="role-modal-card">
+        <button class="modal-close" id="closeRegisterModal">&times;</button>
+        
+        <h2>Select Registration Role</h2>
+        <p>Choose your account type to sign up</p>
+
+        <div class="icon-roles-container">
+          <!-- Student Registration Card -->
+          <a href="#" class="icon-role-card student-card" id="studentRegisterCard">
+            <div class="large-icon-circle student-badge">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <span class="role-label">Student</span>
+          </a>
+
+          <!-- Teacher Registration Card -->
+          <a href="#" class="icon-role-card teacher-card" id="teacherRegisterCard">
+            <div class="large-icon-circle teacher-badge">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <span class="role-label">Teacher</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 ESSU-Salcedo — Student & Teacher Assignment Tracker (STAT)[cite: 21]</p>
+    </footer>
+  {{/if}}
+
+  {{#if isStudentLogin}}
+    {{> StudentLogin}}
+  {{/if}}
+
+  {{#if isTeacherLogin}}
+    {{> TeacherLogin}}
+  {{/if}}
+
+  {{#if isStudentRegister}}
+   {{> StudentRegister}}
+  {{/if}}
+
+  {{#if isTeacherRegister}}
+    {{> TeacherRegister}}
+  {{/if}}
+
+  {{#if isForgotChoice}}
+    {{> ForgotChoice}}
+  {{/if}}
+
+   {{#if isStudentDashboard}}
+    {{> StudentDashboard}}
+  {{/if}}
+</body>

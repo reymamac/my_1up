@@ -1,0 +1,69 @@
+<template name="StudentLogin">
+  <div class="login-body">
+    <div class="login-wrapper">
+      <div class="login-card">
+        
+        <!-- Left Column: Sign In Form -->
+        <div class="form-left-col">
+          <a href="#" class="btn-back-home" id="backToHome">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+          </a>
+
+          <div class="portal-badge-pill">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>STUDENT PORTAL</span>
+          </div>
+
+          <h1 class="login-heading">Sign In</h1>
+          <p class="login-subheading">Please enter your credentials to access your courses.</p>
+
+          <form id="studentLoginForm">
+            <div class="input-group">
+              <label>School ID</label>
+              <div class="input-box">
+                <i class="fa-regular fa-id-card input-ico"></i>
+                <input type="text" id="schoolId" placeholder="e.g. 20-10492" required>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label>Password</label>
+              <div class="input-box">
+                <i class="fa-solid fa-lock input-ico"></i>
+                <input type="password" id="password" placeholder="••••••••" required>
+                <i class="fa-regular fa-eye toggle-pwd" id="togglePassword"></i>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label class="remember-label">
+                <input type="checkbox"> Remember me
+              </label>
+              <a href="#" class="forgot-pwd-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-signin-student">
+              Sign In to Student Portal
+            </button>
+          </form>
+
+          <div class="switch-role-footer">
+            Are you a teacher? <a href="#" class="switch-link" id="switchToTeacher">Login as Teacher</a>
+          </div>
+        </div>
+
+        <!-- Right Column: New Student CTA Panel -->
+        <div class="cta-right-col">
+          <h2 class="cta-heading">New Student?</h2>
+          <p class="cta-desc">Create an account to track your academic progress, view grades, and access learning materials.</p>
+          <a href="#" class="btn-create-account" id="goToStudentRegister">Create Student Account</a>
+          
+          <div class="system-copyright">
+            &copy; 2026 Academic Management System
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

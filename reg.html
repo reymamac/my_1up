@@ -1,0 +1,169 @@
+<template name="TeacherRegister">
+  <div class="login-body">
+    <div class="login-wrapper">
+      <div class="login-card">
+        
+        <!-- Left Column: Multi-Step Form -->
+        <div class="form-left-col">
+          <a href="#" class="btn-back-home" id="backToHomeFromTeacherReg">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+          </a>
+
+          <div class="portal-badge-pill faculty-badge">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>FACULTY REGISTRATION (Step {{teacherRegStepNum}} of 3)</span>
+          </div>
+
+          <h1 class="login-heading">Teacher Account</h1>
+          <p class="login-subheading">
+            {{teacherStepDescription}}
+          </p>
+
+          <!-- ERROR ALERT BOX -->
+          {{#if teacherErrorMessage}}
+            <div class="error-alert-box" style="background: #fee2e2; color: #991b1b; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1rem; font-weight: 600; border: 1px solid #fecaca;">
+              <i class="fa-solid fa-triangle-exclamation"></i> {{teacherErrorMessage}}
+            </div>
+          {{/if}}
+
+          <form id="teacherRegisterForm">
+            
+            <!-- STEP 1: Full Name, Email & Gender -->
+            {{#if isTeacherStep 1}}
+              <div class="input-group">
+                <label>Full Name</label>
+                <div class="input-box">
+                  <i class="fa-regular fa-user input-ico"></i>
+                  <input type="text" id="regTeacherFullName" placeholder="e.g. Maria Santos" required>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Faculty Email Address</label>
+                <div class="input-box">
+                  <i class="fa-regular fa-envelope input-ico"></i>
+                  <input type="email" id="regTeacherEmail" placeholder="teacher@school.edu" required>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Gender</label>
+                <div class="input-box">
+                  <i class="fa-solid fa-venus-mars input-ico"></i>
+                  <select id="regTeacherGender" class="input-select" style="width: 100%; padding: 0.9rem 1rem 0.9rem 2.75rem; border: 1px solid var(--border-color); border-radius: 12px; font-size: 0.95rem; background: #f8fafc; color: var(--text-dark);">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="wizard-actions">
+                <button type="button" class="btn-signin-teacher" id="teacherNextStepBtn" style="background-color: #054c34;">
+                  Next Step <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            {{/if}}
+
+            <!-- STEP 2: Academic Rank, Level (1-6) & Department -->
+            {{#if isTeacherStep 2}}
+              <div class="input-group">
+                <label>Academic Rank</label>
+                <div class="input-box">
+                  <i class="fa-solid fa-award input-ico"></i>
+                  <select id="regTeacherRank" class="input-select" style="width: 100%; padding: 0.9rem 1rem 0.9rem 2.75rem; border: 1px solid var(--border-color); border-radius: 12px; font-size: 0.95rem; background: #f8fafc; color: var(--text-dark);">
+                    <option value="">Select Academic Rank</option>
+                    <option value="Instructor">Instructor</option>
+                    <option value="Lecturer">Lecturer</option>
+                    <option value="Assistant Professor">Assistant Professor</option>
+                    <option value="Associate Professor">Associate Professor</option>
+                    <option value="Professor">Professor</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Rank Level / Option (1 - 6)</label>
+                <div class="input-box">
+                  <i class="fa-solid fa-layer-group input-ico"></i>
+                  <select id="regTeacherRankLevel" class="input-select" style="width: 100%; padding: 0.9rem 1rem 0.9rem 2.75rem; border: 1px solid var(--border-color); border-radius: 12px; font-size: 0.95rem; background: #f8fafc; color: var(--text-dark);">
+                    <option value="">Select Level (1 - 6)</option>
+                    <option value="1">Level 1</option>
+                    <option value="2">Level 2</option>
+                    <option value="3">Level 3</option>
+                    <option value="4">Level 4</option>
+                    <option value="5">Level 5</option>
+                    <option value="6">Level 6</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Department</label>
+                <div class="input-box">
+                  <i class="fa-solid fa-building-columns input-ico"></i>
+                  <input type="text" id="regTeacherDepartment" placeholder="e.g. Computer Studies Department" required>
+                </div>
+              </div>
+
+              <div class="wizard-actions dual-btn">
+                <button type="button" class="btn-secondary-step" id="teacherPrevStepBtn">
+                  <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <button type="button" class="btn-signin-teacher" id="teacherNextStepBtn" style="background-color: #054c34; border: none; color: white; padding: 0.95rem; border-radius: 12px; font-weight: 700;">
+                  Next Step <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            {{/if}}
+
+            <!-- STEP 3: Password & Confirmation -->
+            {{#if isTeacherStep 3}}
+              <div class="input-group">
+                <label>Password</label>
+                <div class="input-box">
+                  <i class="fa-solid fa-lock input-ico"></i>
+                  <input type="password" id="regTeacherPassword" placeholder="••••••••" required>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Confirm Password</label>
+                <div class="input-box">
+                  <i class="fa-solid fa-shield input-ico"></i>
+                  <input type="password" id="regTeacherConfirmPassword" placeholder="••••••••" required>
+                </div>
+              </div>
+
+              <div class="wizard-actions dual-btn">
+                <button type="button" class="btn-secondary-step" id="teacherPrevStepBtn">
+                  <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <button type="submit" class="btn-signin-teacher" style="background-color: #054c34; border: none; color: white; padding: 0.95rem; border-radius: 12px; font-weight: 700;">
+                  Register Faculty Account
+                </button>
+              </div>
+            {{/if}}
+
+          </form>
+
+          <div class="switch-role-footer">
+            Already registered? <a href="#" class="switch-link" id="switchToTeacherLogin">Sign In Here</a>
+          </div>
+        </div>
+
+        <!-- Right Column: CTA Panel -->
+        <div class="cta-right-col faculty-cta">
+          <h2 class="cta-heading">Already Registered?</h2>
+          <p class="cta-desc">If you already have a faculty account, sign in now to manage your classes and post grades.</p>
+          <a href="#" class="btn-create-account" id="goToTeacherLoginFromCta">Sign In Here</a>
+          
+          <div class="system-copyright">
+            &copy; 2026 Academic Management System
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

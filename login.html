@@ -1,0 +1,69 @@
+<template name="TeacherLogin">
+  <div class="login-body">
+    <div class="login-wrapper">
+      <div class="login-card">
+        
+        <!-- Left Column: Faculty Sign In Form -->
+        <div class="form-left-col">
+          <a href="#" class="btn-back-home" id="backToHomeTeacher">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+          </a>
+
+          <div class="portal-badge-pill faculty-badge">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>FACULTY PORTAL</span>
+          </div>
+
+          <h1 class="login-heading">Sign In</h1>
+          <p class="login-subheading">Please enter your full name to manage your classes.</p>
+
+          <form id="teacherLoginForm">
+            <div class="input-group">
+              <label>Full Name</label>
+              <div class="input-box">
+                <i class="fa-regular fa-user input-ico"></i>
+                <input type="text" id="fullName" placeholder="e.g. Juan Dela Cruz" required>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label>Password</label>
+              <div class="input-box">
+                <i class="fa-solid fa-lock input-ico"></i>
+                <input type="password" id="teacherPassword" placeholder="••••••••" required>
+                <i class="fa-regular fa-eye toggle-pwd" id="toggleTeacherPassword"></i>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label class="remember-label">
+                <input type="checkbox"> Remember me
+              </label>
+              <a href="#" class="forgot-pwd-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-signin-teacher">
+              Sign In to Faculty Portal
+            </button>
+          </form>
+
+          <div class="switch-role-footer">
+            Are you a student? <a href="#" class="switch-link" id="switchToStudent">Login as Student</a>
+          </div>
+        </div>
+
+        <!-- Right Column: Faculty Registration CTA Panel -->
+        <div class="cta-right-col faculty-cta">
+          <h2 class="cta-heading">Faculty Registration</h2>
+          <p class="cta-desc">Register your faculty account to post grades, manage attendance, and communicate with students.</p>
+          <a href="#" class="btn-create-account" id="goToTeacherRegister">Register as Teacher</a>
+          
+          <div class="system-copyright">
+            &copy; 2026 Academic Management System
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

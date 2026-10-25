@@ -1,0 +1,69 @@
+<template name="StudentDashboard">
+  <div class="dashboard-wrapper">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div>
+        <!-- BRAND LOGO -->
+        <div class="brand-header">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <div>
+            <h3>STAT</h3>
+            <span>Student Portal</span>
+          </div>
+        </div>
+
+        <!-- NAVIGATION LINKS -->
+        <nav class="nav-menu">
+          <a href="#" class="nav-item {{#if isTab 'overview'}}active-tab{{/if}}" id="tabOverview">
+            <i class="fa-solid fa-chart-pie"></i> Overview
+          </a>
+          <a href="#" class="nav-item {{#if isTab 'join'}}active-tab{{/if}}" id="tabJoin">
+            <i class="fa-solid fa-plus-circle"></i> Join Subject
+          </a>
+          <a href="#" class="nav-item {{#if isTab 'myassignments'}}active-tab{{/if}}" id="tabAssignments">
+            <i class="fa-solid fa-book-open"></i> My Assignments
+          </a>
+          <a href="#" class="nav-item {{#if isTab 'myprogress'}}active-tab{{/if}}" id="tabProgress">
+            <i class="fa-solid fa-bars-progress"></i> My Progress
+          </a>
+        </nav>
+      </div>
+
+      <!-- FOOTER USER PROFILE & LOGOUT -->
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <i class="fa-solid fa-circle-user"></i>
+          <div>
+            <strong>{{studentData.name}}</strong>
+            <span>{{studentData.course}}</span>
+          </div>
+        </div>
+        
+        <a href="#" id="btnLogoutStudent" class="logout-link">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      {{#if isTab 'overview'}}
+        {{> OverviewTab}}
+      {{/if}}
+      
+      {{#if isTab 'join'}}
+        {{> JoinTab}}
+      {{/if}}
+      
+      {{#if isTab 'myassignments'}}
+        {{> MyAssignmentsTab}}
+      {{/if}}
+      
+      {{#if isTab 'myprogress'}}
+        {{> MyProgressTab}}
+      {{/if}}
+    </main>
+
+  </div>
+</template>

@@ -1,0 +1,32 @@
+<template name="TeacherDashboard">
+  <div class="dashboard-wrapper">
+    <aside class="sidebar">
+      <div>
+        <div class="brand-header">
+          <i class="fa-solid fa-chalkboard-user"></i>
+          <div>
+            <h3>STAT</h3>
+            <span>Faculty Portal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <i class="fa-solid fa-circle-user"></i>
+          <div>
+            <strong>{{teacherName}}</strong>
+            <span>{{teacherDept}}</span>
+          </div>
+        </div>
+        <a href="#" id="btnLogoutTeacher" class="logout-link">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <h2>Welcome, {{teacherName}}!</h2>
+    </main>
+  </div>
+</template>

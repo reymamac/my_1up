@@ -3,8 +3,8 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
-import './home.html';
-import './home.css';
+import './index.html';
+import './style.css';
 // login 
 import './templates/student/slogin.html';
 import './statics/Spart/slogin..css';
